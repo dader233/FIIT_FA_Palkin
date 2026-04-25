@@ -37,7 +37,7 @@ public class SplayTree<TKey, TValue> : BinarySearchTree<TKey, TValue>
     protected override void RemoveNode(BstNode<TKey, TValue> node)
     {
         Splay(node);
-        
+
         base.RemoveNode(node);
     }
     private void Splay(BstNode<TKey, TValue> node)
@@ -51,33 +51,29 @@ public class SplayTree<TKey, TValue> : BinarySearchTree<TKey, TValue>
             {
                 // Zig: родитель - корень
                 if (node.IsLeftChild)
-                    RotateRight(node);  // ваш метод
+                    RotateRight(node);
                 else
-                    RotateLeft(node);   // ваш метод
+                    RotateLeft(node); 
             }
             else if (node.IsLeftChild && parent.IsLeftChild)
             {
                 // Zig-Zig: оба левые
-                RotateRight(parent);    // сначала поднимаем родителя
-                RotateRight(node);      // потом сам узел
+                RotateDoubleRight(node); 
             }
             else if (node.IsRightChild && parent.IsRightChild)
             {
                 // Zig-Zig: оба правые
-                RotateLeft(parent);     // сначала поднимаем родителя
-                RotateLeft(node);       // потом сам узел
+                RotateDoubleLeft(node);
             }
             else if (node.IsRightChild && parent.IsLeftChild)
             {
                 // Zig-Zag: node справа, parent слева
-                RotateLeft(node);       // поднимаем node
-                RotateRight(node);      // ещё раз поднимаем node
+                RotateBigRight(node);
             }
             else // node.IsLeftChild && parent.IsRightChild
             {
                 // Zig-Zag: node слева, parent справа
-                RotateRight(node);      // поднимаем node
-                RotateLeft(node);       // ещё раз поднимаем node
+                RotateBigLeft(node);
             }
         }
     

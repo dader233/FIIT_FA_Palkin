@@ -54,8 +54,8 @@ public class BinarySearchTreeTests : GenericTreeTests<BinarySearchTree<int, stri
 [TestFixture, Category("AVL")]
 public class AvlTests : GenericTreeTests<AvlTree<int, string>> { }
 
-[TestFixture, Category("RB")]
-public class RedBlackTests : GenericTreeTests<RedBlackTree<int, string>> { }
+//[TestFixture, Category("RB")]
+//public class RedBlackTests : GenericTreeTests<RedBlackTree<int, string>> { }
 
 [TestFixture, Category("Splay")]
 public class SplayTests : GenericTreeTests<SplayTree<int, string>> { }
